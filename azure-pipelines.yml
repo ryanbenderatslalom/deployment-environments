@@ -27,5 +27,5 @@ steps:
     inlineScript: |
       iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
       $params = "{ 'location': 'eastus2' }"
-      az devcenter dev environment create
-    arguments: '--dev-center-name  devcenter-contoso-eus2 --project-name web-app-basic -n pipeline --environment-type Dev --catalog-item-name WebApp --catalog-name community-examples --parameters $params'
+      az devcenter dev environment create --dev-center-name  devcenter-contoso-eus2 --project-name web-app-basic -n pipeline --environment-type Dev --catalog-item-name WebApp --catalog-name community-examples --parameters $params
+#    arguments: '--dev-center-name  devcenter-contoso-eus2 --project-name web-app-basic -n pipeline --environment-type Dev --catalog-item-name WebApp --catalog-name community-examples --parameters $params'
