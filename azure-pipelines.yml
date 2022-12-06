@@ -11,10 +11,20 @@ pool:
 
 steps:
 #- script: echo Hello, world!
-- script: |
-    $params = "{ 'location': 'eastus2' }"
-    az devcenter dev environment create --dev-center-name  devcenter-contoso-eus2 `
-    --project-name web-app-basic -n pipeline --environment-type Dev `
-    --catalog-item-name WebApp --catalog-name community-examples `
-    --parameters $params
-  displayName: 'Pipeline scripted'
+- script: echo Pipeline scripted
+#- script: |
+#    $params = "{ 'location': 'eastus2' }"
+#    az devcenter dev environment create --dev-center-name  devcenter-contoso-eus2 `
+#    --project-name web-app-basic -n pipeline --environment-type Dev `
+#    --catalog-item-name WebApp --catalog-name community-examples `
+#    --parameters $params
+#  displayName: 'Pipeline scripted'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Dallas Azure Innovation Lab(dac730c2-4027-48aa-b9ea-c423e0e228b4)'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      $params = "{ 'location': 'eastus2' }"
+      az devcenter dev environment create
+    arguments: '--dev-center-name  devcenter-contoso-eus2 --project-name web-app-basic -n pipeline --environment-type Dev --catalog-item-name WebApp --catalog-name community-examples --parameters $params'
