@@ -22,7 +22,7 @@ steps:
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'Dallas Azure Innovation Lab(dac730c2-4027-48aa-b9ea-c423e0e228b4)'
-    scriptType: 'ps'
+    scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
       $params = "{ 'location': 'eastus2' }"
