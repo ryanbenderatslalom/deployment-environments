@@ -23,7 +23,7 @@ steps:
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'Dallas Azure Innovation Lab(dac730c2-4027-48aa-b9ea-c423e0e228b4)'
-    scriptType: 'bash'
+    scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: |
       iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
